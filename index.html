@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/styles.css">
+	<title>Document</title>
+</head>
+
+<body>
+
+	<nav>
+		<div class="links">
+			<a href="index.html" class="play-regular">Главная</a> |
+			<a href="videos.html" class="play-regular">Видео</a> |
+			<a href="lore.html" class="play-regular">Отписи лора</a> |
+			<a href="gallery.html" class="play-regular">Галерея</a>
+		</div>
+	</nav>
+
+	<section class="hero">
+		<div class="video-container">
+			<video autoplay muted loop playsinline>
+				<source src="img/playback.mp4" type="video/mp4">
+			</video>
+		</div>
+
+		<div class="content">
+			<h1 class="play-regular">СУЛУС </h1>
+			<p><i>«Когда тебе больше нечего терять, зачем ты гонишься за новым грузом?»</i></p>
+		</div>
+	</section>
+
+	<section class="lore-cards">
+		<h2>Недавние лоры</h2>
+		<div class="lore-cards-container" id="lore-container"></div>
+	</section>
+
+	<script src="js/lore-hot.js"></script>
+</body>
+
+</html>
