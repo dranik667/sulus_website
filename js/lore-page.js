@@ -5,20 +5,25 @@ fetch('data/lore.json')
   .then(res => res.json())
   .then(data => {
     const lore = data.find(item => item.id === id);
+    const contentEl = document.getElementById('content');
+    const titleEl = document.getElementById('title');
 
-    if (!lore) {
-      document.body.innerHTML = "<h1>404</h1>";
+    if (!lore || !lore.content) {
+      titleEl.textContent = "Пусто...";
+      contentEl.innerHTML = `
+        <div class="empty-state">
+          <img src="img/sulus-dead.png" alt="Мертвый чиби-Сулус">
+          <h2>Ничего тут пока нет :(</h2>
+        </div>
+      `;
       return;
     }
 
-    document.getElementById('title').textContent = lore.title;
+    titleEl.textContent = lore.title;
 
-    const contentEl = document.getElementById('content');
-
-    // Split content by newline and wrap each line in <p>
     const paragraphs = lore.content.split('\n');
 
-    // When inserting, <hide> tags stay in HTML
-    contentEl.innerHTML = paragraphs.map(p => `<p>${p}</p>`).join('') +
-                          `<p class="date">${new Date(lore.date).toLocaleDateString('ru-RU')}</p>`;
+    contentEl.innerHTML =
+      paragraphs.map(p => `<p>${p}</p>`).join('') +
+      `<p class="date">${new Date(lore.date).toLocaleDateString('ru-RU')}</p>`;
   });

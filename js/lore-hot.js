@@ -2,6 +2,12 @@ fetch('data/lore.json')
   .then(res => res.json())
   .then(data => {
     const container = document.getElementById('lore-container');
+    const emptyState = document.getElementById('empty-state');
+
+    if (!data || data.length === 0) {
+      emptyState.style.display = 'flex';
+      return;
+    }
     
     // Get the last 3 items
     const latest = data.slice(-3);

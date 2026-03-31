@@ -7,30 +7,81 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/styles.css">
 	<title>Галерея</title>
 </head>
 
 <body>
 	<nav>
-		<div class="links">
-			<a href="index.html" class="play-regular">Главная</a> |
-			<a href="videos.html" class="play-regular">Видео</a> |
-			<a href="lore.html" class="play-regular">Отписи лора</a> |
-			<a href="gallery.html" class="play-regular">Галерея</a>
+		<div class="nav-container">
+
+			<div class="logo play-bold">DRANIK667</div>
+
+			<div class="hamburger" id="hamburger">☰</div>
+
+			<div class="links" id="nav-links">
+				<a href="index.html" class="play-regular">Главная</a>
+				<a href="videos.html" class="play-regular">Видео</a>
+				<a href="lore.html" class="play-regular">Отписи лора</a>
+				<a href="gallery.html" class="play-regular">Галерея</a>
+			</div>
+
 		</div>
 	</nav>
 
 	<section class="gallery">
 		<h1>Галерея</h1>
 
+		<div id="empty-state" class="empty-state" style="display: none;">
+			<img src="img/sulus-dead.png" alt="Мертвый чиби-Сулус">
+			<h2>Ничего тут пока нет :(</h2>
+		</div>
+
 		<div class="gallery-grid">
-			<img src="img/1.jpg" alt="">
-			<img src="img/2.jpg" alt="">
-			<img src="img/3.jpg" alt="">
-			<img src="img/4.jpg" alt="">
+			<div class="gallery-item">
+				<img src="img/concept.PNG" alt="">
+				<p class="caption">Первый концепт-арт Сулуса</p>
+			</div>
+
+			<div class="gallery-item">
+				<img src="img/cryocamera.PNG" alt="">
+				<p class="caption">Сулус ждёт друга из криокамеры</p>
+			</div>
+
+			<div class="gallery-item">
+				<img src="img/full_body_color.PNG" alt="">
+				<p class="caption">Полный цветной арт</p>
+			</div>
+
+			<div class="gallery-item">
+				<img src="img/MEGA_poster.JPG" alt="">
+				<p class="caption">Постер с Доминикой и Шесей</p>
+			</div>
+
+			<div class="gallery-item">
+				<img src="img/sulus-dead.PNG" alt="">
+				<p class="caption">Чиби Сулус</p>
+			</div>
 		</div>
 	</section>
+
+	<script src="js/nav.js"></script>
+	<script>
+		const hamburger = document.getElementById('hamburger');
+		const navLinks = document.getElementById('nav-links');
+
+		hamburger.addEventListener('click', () => {
+			navLinks.classList.toggle('active');
+		});
+
+		const container = document.querySelector('.gallery-grid');
+		const emptyState = document.getElementById('empty-state');
+
+		if (!container || container.children.length === 0) {
+			emptyState.style.display = 'flex';
+		}
+	</script>
 </body>
 
 </html>
