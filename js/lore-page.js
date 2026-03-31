@@ -12,7 +12,7 @@ fetch('data/lore.json')
       titleEl.textContent = "Пусто...";
       contentEl.innerHTML = `
         <div class="empty-state">
-          <img src="img/sulus-dead.PNG" alt="Мертвый чиби-Сулус">
+          <img src="img/sulus-dead.png" alt="Мертвый чиби-Сулус">
           <h2>Ничего тут пока нет :(</h2>
         </div>
       `;
